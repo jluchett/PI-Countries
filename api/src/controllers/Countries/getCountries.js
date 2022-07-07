@@ -10,7 +10,7 @@ const getInfoApi = async () => {
                 img : el.flags[0],
                 continent : el.continents[0],
                 capital : el.capital? el.capital[0] : el.name.official,
-                subregion : el.subregion,
+                subregion : el.subregion? el.subregion : el.continents[0],
                 area : el.area,
                 population : el.population,
             }
