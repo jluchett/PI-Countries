@@ -1,14 +1,16 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux';
-import { getCountries } from "../actions";
+import { getCountries, filterCountryByContinent, orderByName } from "../actions";
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import Paginado from "./Paginado";
+import SearchBar from "./SearchBar";
 
 export default function Home (){
     const dispatch = useDispatch()
     const allCountries = useSelector ((state) => state.countries)
+    const [orden, setOrden] = useState('')
     const [currentPage, setCurrentPage] = useState(1)
     const [countryPerPage, setCountryPerPage] = useState(6)
     const indexLastCountry = currentPage * countryPerPage
@@ -29,6 +31,17 @@ export default function Home (){
         dispatch(getCountries());
     }
 
+    function hanledSort(e){
+        e.preventDefault();
+        dispatch(orderByName(e.target.value));
+        setCurrentPage(1);
+        setOrden(`Ordenado ${e.target.value}`);
+    }
+    
+    function handleFilterContin(e){
+        dispatch(filterCountryByContinent(e.target.value))
+    }
+
     return(
         <div>
             <Link to='/activities'>Crear Activity</Link>
@@ -37,11 +50,12 @@ export default function Home (){
                 Cargar paises nuevamente
             </button>
             <div>
-                <select>
+                <select onChange={e => hanledSort(e)}>
                     <option value='asc'>Ascendente</option>
                     <option value='desc'>Descendente</option>
                 </select>
-                <select>
+                <select onChange={e => handleFilterContin(e)}>
+                    <option value='All'>Todos</option>
                     <option value='Africa'>Africa</option>
                     <option value='Antarctica'>Antarctica</option>
                     <option value='Asia'>Asia</option>
@@ -55,6 +69,7 @@ export default function Home (){
                 allCountries={allCountries.length}
                 paginado={paginado}
                 />
+                <SearchBar/>
                 {currentCountry?.map((c)=>{
                     return(
                         <fragment>
