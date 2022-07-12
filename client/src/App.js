@@ -5,7 +5,6 @@ import Home from './components/Home';
 import CreateActivity from './components/CreatedActivity';
 import Detail from './components/Detail';
 
-
 function App() {
   return (
     <BrowserRouter>
@@ -14,7 +13,7 @@ function App() {
           <Route exact path='/' component={LandingPage}/>
           <Route path='/home' component={Home}/>
           <Route path='/activity' component={CreateActivity}/>
-          <Route path='/home/:id' component={Detail} />
+
         </Switch>
       </div>
     </BrowserRouter>

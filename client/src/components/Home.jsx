@@ -40,11 +40,12 @@ export default function Home (){
     
     function handleFilterContin(e){
         dispatch(filterCountryByContinent(e.target.value))
+        setCurrentPage(1)
     }
 
     return(
         <div>
-            <Link to='/activities'>Crear Activity</Link>
+            <Link to='/activity'>Crear Activity</Link>
             <h1>PAISES DEL MUNDO</h1>
             <button onClick={e => {handledClick(e)}}>
                 Cargar paises nuevamente
@@ -73,7 +74,7 @@ export default function Home (){
                 {currentCountry?.map((c)=>{
                     return(
                         <fragment>
-                            <Link to={"/home" + c.id}>
+                            <Link to={'/home/' + c.id}>
                                 <Card name={c.name} img={c.img} id={c.id} continent={c.continent} key={c.id}/>
                             </Link>
                         </fragment>

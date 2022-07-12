@@ -1,6 +1,7 @@
 const initialState = {
     countries:[],
     copyCountries: [],
+    detail: [],
     activities: []
 }
 
@@ -25,6 +26,11 @@ function rootReducer(state = initialState, action){
         case 'POST_ACTIVITY':
             return{
                 ...state,
+            }
+        case 'GET_DETAIL':
+            return{
+                ...state,
+                detail: action.payload
             }
         case 'FILTER_BY_CONTINENT':
             const allCountries = state.copyCountries
