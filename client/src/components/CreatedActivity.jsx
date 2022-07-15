@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { postActivity } from "../actions";
+import NavBar from "./NavBar";
 
 function validate(input){
     let errores = {}
@@ -81,7 +82,8 @@ export default function CreateActivity(){
 
     return(
         <div>
-            <Link to='/home'><button>Volver a Home</button></Link>
+            <br/>
+            <NavBar/>
             <h1>Crear Actividad</h1>
             <form onSubmit={(e)=> handleSubmit(e)}>
                 <div>

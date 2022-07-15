@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../actions";
 import { useEffect } from "react";
+import NavBar from "./NavBar";
+import Loading from "./Loading";
 
 export default function Detail (props){
     const dispatch = useDispatch();
@@ -13,6 +15,8 @@ export default function Detail (props){
 
     return (
         <div>
+            <br/>
+            <NavBar/>
             {
                 infCountry.length>0 ?
                 <div>
@@ -25,7 +29,8 @@ export default function Detail (props){
                     <h2>Area: {infCountry[0].area} Km2</h2>
                     <h2>Poblacion: {infCountry[0].population} habitantes</h2>
                     <h4>Actividades: {infCountry[0].activities.length>0 ? infCountry[0].activities.map(el => el.name + (' ')) : "No tiene Actividades"}</h4>
-                </div> : <p>Loading...</p>
+                </div> : 
+                <Loading/>
             }
             <Link to="/home">
                 <button>Regresar al home</button>

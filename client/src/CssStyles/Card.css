@@ -1,0 +1,20 @@
+.cardCountry {
+    text-align: center;
+    width: 230px;
+    height: 260px;
+    padding: 10px;
+    margin: 10px;
+    color: rgb(255, 255, 255);
+    box-shadow: 0px 4px 8px 0 rgba(24, 13, 1, 0.33);
+    transition: 0.3s;
+    /* background-color: #2e4a7fb1; */
+    background: rgb(0, 7, 36);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 7, 36, 0.75) 0%,
+      rgba(46, 74, 127, 1) 100%
+    );
+    filter: opacity(75%);
+    border-radius: 15px;
+    transition: 0.7s;
+}

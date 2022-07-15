@@ -1,0 +1,29 @@
+.navBar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: -12px 20px 0px 20px;
+    padding: 5px;
+    background: rgba(224, 130, 47, 0.899); 
+    border-radius: 20px;
+    backdrop-filter: blur(1px);
+  }
+  
+  .menuNavBar {
+    color: rgba(245, 245, 245, 0.8);
+    font-size: 17px;
+    font-weight: none;
+    letter-spacing: 0.7px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .menuNavBar.active {
+    background: rgba(246, 167, 98, 0.899);
+    padding: 5px;
+    padding-top: 2px;
+    margin: 0px;
+    border-radius: 7px;
+  }
