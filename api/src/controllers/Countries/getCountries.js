@@ -7,7 +7,7 @@ const getInfoApi = async () => {
             return {
                 name : el.name.common,
                 id : el.cca3,
-                img : el.flags[0],
+                img : el.flags[1],
                 continent : el.continents[0],
                 capital : el.capital? el.capital[0] : el.name.official,
                 subregion : el.subregion? el.subregion : el.continents[0],

@@ -47,9 +47,9 @@ export default function Home (){
 
     return(
         <div className="home">
-            <br/>
             {allCountries.length > 0 ? (
-                <div>
+                <div >
+                    <br/>
                     <Navbar/>
                     <h1>
                         COUNTRIES OF THE WORLD AND THEIR ACTIVITIES

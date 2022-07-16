@@ -5,12 +5,14 @@ import { Link } from "react-router-dom"
 
 export default function Card({name, img, id, continent}){
     return(
-        <div className="cardCountry">
-            <Link to={'/country/' + id}>
-                <div>
-                    <div>{name.toUpperCase()}</div>
-                    <img src={img} alt="img not found" width="92%" height="150px" />
-                    <span>{continent}</span>
+        <div className="countryCard">
+            <Link className="countryCardLink" to={'/country/' + id}>
+                <div className="countryCardDetail">
+                    <img className="flag" src={img} alt="img not found"/>
+                    <div id="nameCountry">{name.toUpperCase()}</div>
+                    <div className="containerCont">
+                        <span id="nameContinent">{continent}</span>
+                    </div>
                 </div>
             </Link>
         </div>
