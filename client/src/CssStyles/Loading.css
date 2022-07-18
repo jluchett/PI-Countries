@@ -1,5 +1,4 @@
 .containerA1 {
-    background-image: url("../images/home.png");
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: 100%;
@@ -25,7 +24,7 @@
 }
   
 .containerLoading p {
-    padding-top: 30px;
-    margin: auto;
+    padding-top: 0px;
+    margin: none;
     display: block;
 }

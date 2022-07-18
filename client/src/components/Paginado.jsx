@@ -3,8 +3,8 @@ import React from "react";
 export default function Paginado({countryPerPage, allCountries, paginado}){
     const pageNumbers = []
 
-    for(let i=0; i <= Math.ceil(allCountries/countryPerPage);i++){
-        pageNumbers.push(i + 1)
+    for(let i=1; i <= Math.ceil(allCountries/countryPerPage);i++){
+        pageNumbers.push(i)
     }
 
     return(

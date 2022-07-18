@@ -85,7 +85,6 @@ export default function CreateActivity(){
             <div>
                 <br/>
                 <NavBar/>
-                <div className="container"></div>
                 <h1>Crear Actividad</h1>
                 <div className="container">
                     <form onSubmit={(e)=> handleSubmit(e)}>
