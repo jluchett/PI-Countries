@@ -34,10 +34,20 @@ function rootReducer(state = initialState, action){
             }
         case 'FILTER_BY_CONTINENT':
             const allCountries = state.copyCountries
-            const continentFiltered = action.payload === 'All' ? allCountries : allCountries.filter(el => el.continent === action.payload)
+            const continentFiltered = action.payload === 'All' ? allCountries 
+            : allCountries.filter(el => el.continent === action.payload)
             return{
                 ...state,
                 countries: continentFiltered
+            
+            }
+        case 'FILTER_BY_ACTIVITY':
+            const countriesByActi = state.copyCountries
+            const activityFiltered = action.payload === 'All' ? countriesByActi 
+            : countriesByActi.filter((c) => c.activities.find((a) => a.name === action.payload))
+            return{
+                ...state,
+                countries: activityFiltered
             }
         case 'ORDER_BY_NAME':
             let sortedCountry = action.payload === 'asc' ?

@@ -26,6 +26,17 @@ export function getNameCountry(name){
 
 }
 
+export function getActivities(){
+    return async function(dispatch){
+        var json = await axios.get("http://localhost:3001/activities",{
+        });
+        return dispatch({
+            type: 'GET_ACTIVITIES',
+            payload: json.data
+        })
+    }
+}
+
 export function postActivity(payload){
     return async function(dispatch){
         try{
@@ -56,6 +67,13 @@ export function getDetail(id){
 export function filterCountryByContinent(payload){
     return{
         type: 'FILTER_BY_CONTINENT',
+        payload
+    }
+}
+
+export function filterByActivity(payload){
+    return{
+        type: 'FILTER_BY_ACTIVITY',
         payload
     }
 }

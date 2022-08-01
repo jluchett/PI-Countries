@@ -1,5 +1,5 @@
 const getDatos = require('./getCountries.js');
-const { Country } = require('../../db.js');
+const { Country, Activity } = require('../../db.js');
 
 const saveCountries = async () =>{
     try{
@@ -18,7 +18,13 @@ const saveCountries = async () =>{
                 }
             })
         });
-        const allCountries = await Country.findAll();
+        const allCountries = await Country.findAll({
+            include:{
+                model: Activity,
+                attributes: ['name'],
+                through: { attributes: [], },
+            }
+        })
         return allCountries
     }catch (error){
         console.log(error)

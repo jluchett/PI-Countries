@@ -9,3 +9,37 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+.flag {
+    width: 600px;
+    height: 400px;
+    border-radius: 10px;
+    margin: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    transition: 0.7s;
+    opacity: 1;
+    -webkit-box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.35);
+  }
+  .containerD1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.containerCharact {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    background-color: #2e4a7fda;
+    border-radius: 10px;
+    border: 1px solid silver;
+    margin: 20px;
+    -webkit-box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.35);
+    color: rgba(245, 245, 245, 0.8);
+    font-size: 18px;
+    font-weight: none;
+    letter-spacing: 0.5px;
+  }

@@ -1,7 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import {useDispatch, useSelector} from 'react-redux';
-import { getCountries, filterCountryByContinent, orderByName } from "../actions";
+import { getCountries, 
+        filterCountryByContinent, 
+        orderByName,
+        getActivities,
+        filterByActivity
+    } from "../actions";
 import Card from "./Card";
 import Paginado from "./Paginado";
 import SearchBar from "./SearchBar";
@@ -12,6 +17,7 @@ import '../CssStyles/Home.css'
 export default function Home (){
     const dispatch = useDispatch()
     const allCountries = useSelector ((state) => state.countries)
+    const allActivities = useSelector ((state) => state.activities)
     const [orden, setOrden] = useState('')
     const [currentPage, setCurrentPage] = useState(1)
     const [countryPerPage, setCountryPerPage] = useState(10)
@@ -25,7 +31,8 @@ export default function Home (){
 
 
     useEffect(()=>{
-        dispatch(getCountries());
+        dispatch(getCountries())
+        dispatch(getActivities())
     },[dispatch])
 
     function handledClick(e){
@@ -45,15 +52,17 @@ export default function Home (){
         setCurrentPage(1)
     }
 
+    function handleFilterActi(e){
+        dispatch(filterByActivity(e.target.value))
+        setCurrentPage(1)
+    }
+
     return(
         <div className="home">
             {allCountries.length > 0 ? (
                 <div >
                     <br/>
                     <Navbar/>
-                    <h1>
-                        COUNTRIES OF THE WORLD AND THEIR ACTIVITIES
-                    </h1>
                     <div>
                         <select onChange={e => hanledSort(e)}>
                             <option value='asc'>Ascendente</option>
@@ -68,6 +77,13 @@ export default function Home (){
                             <option value='Oceania'>Oceania</option>
                             <option value='North America'>North America</option>
                             <option value='South America'>South America</option>
+                        </select>
+                        <select onChange={(e)=>handleFilterActi(e)}>
+                            <option value="All">Todas</option>
+                            {allActivities.map((el)=>(
+                                <option value={el.name}>{el.name}</option>
+                                ))
+                            }  
                         </select>
                         <button onClick={e => {handledClick(e)}}>
                             Load Countries again
